@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="app">
+    <h2>VUE: {{status}}</h2>
+    
+    <div>
+        <textarea v-model="textarea" cols="30" rows="10"></textarea>
+        <br>
+        <button @click="ask">Спросить у ChatGpt</button>
+        <div v-if="lastAnswer != ''">
+            Последний ответ: {{lastAnswer}}
+        </div>
+        <div v-if="data.length != 0">
+            <div v-for="i in data.length">
+                Вопрос: <br>
+                {{data[i-1][0].q}} <br>
+                Ответ: <br>
+                {{data[i-1][0].a}} <br>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="module" src="index.js"></script>
+</body>
+</html>
