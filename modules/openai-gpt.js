@@ -1,5 +1,5 @@
 import { OpenAI } from "openai";
-const key = '******************************'
+const key = '**************************'
 const openai = new OpenAI({ apiKey: key });
 
 
@@ -9,10 +9,10 @@ export async function main(msg) {
         messages: [{ role: "user", content: msg }],
         model: "gpt-3.5-turbo",
       });
+
+      return completion.choices[0].message.content
     } catch (error) {
       console.log(error)
       return 0
-    }
-
-      return completion.choices[0].message.content
+    }      
 }
